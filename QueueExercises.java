@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 import javax.security.auth.Subject;
 
+import org.w3c.dom.ranges.Range;
+
 public class QueueExercises {
 
     public static int sumQueue(Queue<Integer> q) {
@@ -899,6 +901,8 @@ public static boolean mystery(Queue<Integer> q, int c){
 
 // q2: 2 -> 4 -> 7 -> 2
 // (5 + n + 1)n = 5n + n^2 + n = 6n + n^2 = O(n^2)
+
+
 // acc. acac. abbbbcbbbbbbbabbbcaaaa
 // abcabcabcabacbacbacbacabcabcacc.  acc accaccaccbac
 // aabcabcabcabcabcabcabcc abbacc
@@ -1076,4 +1080,113 @@ public static boolean isArranged(Node<Integer> lst){
         pos = pos.getNext();
     }
     return true;
+}
+
+public static boolean isIncluded(Node<Integer> lst1, Node<Range> lst2){
+    Node<Integer> temp1 = lst1;
+    Node<Range> temp2 = lst2;
+    while(temp1 != null){
+        while(!(temp1.getValue() >= temp2.getValue().getLow() && temp1.getValue() <= temp2.getValue().getHigh())){
+            temp2 = temp2.getNext();
+            if(temp2 == null)
+                return false;
+        }
+        temp1 = temp1.getNext();
+    }
+    return true;
+} 
+// 1*n + 1*1 + 1*1 + 1*1 ... (example in case that the first node run over n ranges)
+// n + 1*(n-1) = n + n-1 = 2n -1 = O(n)
+
+public static int mostSick(Queue<CovidTest> q){
+    Queue<CovidTest> temp = new Queue<CovidTest>();
+    Queue<covidCount> cityCounterQ = new Queue<covidCount>();
+    int x, maxCount = 0;
+    int count = 0;
+    while(!q.isEmpty && !temp.isEmpty){
+        x = q.head().getCityCode();
+        while(!q.isEmpty){
+            if(q.head().getSick() == true && q.head().getCityCode == x){
+                count++;
+                q.remove();
+            }
+            else if(q.head().getSick == false)
+                q.remove();
+            else{
+                temp.insert(q.remove());
+            }
+        }
+        if(count > maxCount)
+            maxCount = count;
+        cityCounterQ.insert(new cityCount(count, x));
+        
+        x = temp.head().getCityCode();
+        count = 0;
+        while(!temp.isEmpty){
+            if(temp.head().getSick() == true && temp.head().getCityCode == x){
+                count++;
+                temp.remove();
+            }
+            else
+                q.insert(temp.remove());
+        }
+        if(count > maxCount)
+            maxCount = count;
+        cityCounterQ.insert(new cityCount(count, x));   
+    }
+    while(!cityCounterQ.isEmpty()){
+        if(cityCounterQ.head().getCount == maxCount)
+            return cityCounterQ.head().getCityCode;
+        cityCounterQ.remove();
+    }
+}
+
+// EDEN - TRY TO PUT THIS CODE IN YOUR PAPER
+public static int biggestSum(int[] arr){
+    int maxSum = 0;
+    int currentSum = 0;
+    for(int i = 0; i < arr.length; i++){
+        if(arr[i] == 0)
+            i++;
+        while(arr[i] != 0){
+            currentSum = currentSum + arr[i];
+            i++;
+            if(i == arr.length)
+                return maxSum;
+        }
+        if (maxSum < currentSum)
+            maxSum = currentSum;
+    }
+    return maxSum;
+}
+
+
+public static boolean posOrder(int[] arr){
+    int previousNum = 0;
+    for(int i = 0; i < arr.length; i++){
+        if(arr[i] > 0 && arr[i] < previousNum){
+            return false;
+        }
+        else if(arr[i] > 0)
+            previousNum = arr[i];
+    }
+    return true;
+}
+
+public static boolean isPrefix(Node<Integer> lst1, Node<Integer> lst2){
+    Node<Integer> tmp1 = lst1;
+    Node<Integer> tmp2 = lst2;
+    while(tmp1 != null){
+        if(tmp1.getValue() != tmp2.getValue())
+            return false;
+
+        tmp1 = tmp1.getNext();
+        tmp2 = tmp2.getNext();
+
+        if(tmp2 == null && tmp1 != null)
+            return false;
+    }
+    return true;
+}
+
 }
