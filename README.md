@@ -1,34 +1,34 @@
-# Java Exercises
+# תרגילי Java
 
-A personal practice repository with Java implementations of core data-structure and algorithm exercises.
+מאגר תרגול אישי הכולל מימושים ב־Java של תרגילים במבני נתונים ואלגוריתמים.
 
-## Repository contents
+## תוכן המאגר
 
-- `Node.java` – Generic linked-list node implementation.
-- `Queue.java` – Generic queue implemented with linked nodes.
-- `BinTreeNode.java` – Generic binary-tree node class.
-- `Game.java` – Simple model class (`name`, `price`).
-- `Store.java` – Store-related linked-list exercises.
-- `Room.java` – Queue-based room/user exercise code.
-- `QueueExercises.java` – Main collection of queue/recursion/tree practice methods and examples.
+- `Node.java` – מימוש גנרי של חוליה ברשימה מקושרת.
+- `Queue.java` – מימוש גנרי של תור באמצעות חוליות.
+- `BinTreeNode.java` – מחלקת צומת גנרית לעץ בינארי.
+- `Game.java` – מחלקת מודל פשוטה (`name`, `price`).
+- `Store.java` – תרגילי רשימה מקושרת בהקשר של חנות.
+- `Room.java` – קוד תרגול לניהול חדר/משתמשים באמצעות תור.
+- `QueueExercises.java` – אוסף מרכזי של תרגילי תור, רקורסיה ועצים.
 
-## Goals
+## מטרות
 
-- Practice Java syntax and OOP basics.
-- Strengthen understanding of linked structures and queues.
-- Solve algorithmic problems using recursion and helper data structures.
+- תרגול תחביר Java ועקרונות OOP בסיסיים.
+- חיזוק ההבנה במבנים מקושרים ותורים.
+- פתרון בעיות אלגוריתמיות בעזרת רקורסיה ומבני עזר.
 
-## How to run
+## איך להריץ
 
-This repository does not currently include a Maven or Gradle project setup.
-Use the JDK command-line tools directly from the repository root:
+במאגר הזה אין כרגע הגדרת פרויקט של Maven או Gradle.
+יש להשתמש בכלי שורת הפקודה של ה־JDK מתוך תיקיית השורש של המאגר:
 
 ```bash
 javac *.java
 java QueueExercises
 ```
 
-## Notes
+## הערות
 
-- Some files include work-in-progress exercises and mixed draft solutions.
-- Comments are written in both Hebrew and English.
+- חלק מהקבצים כוללים תרגילים בתהליך עבודה ופתרונות בטיוטה.
+- ההערות בקוד כתובות בעברית ובאנגלית.
