@@ -1189,4 +1189,128 @@ public static boolean isPrefix(Node<Integer> lst1, Node<Integer> lst2){
     return true;
 }
 
+    if(.....)
+        q.head().setPriority(pri);
+        q.priorityInsert(q.remove());   
+}
+
+MyTime mt1 = new MyTime(10, 30);
+MyTime mt2 = new MyTime(11, 15);
+mt1.before(mt2); // returns true
+
+public static String first (Parking[] cars){
+    MyTime min = new MyTime(cars[0].getIn);
+    for(int i = 0; i < cars.length; i++){
+        if(cars[i].getIn.before(min))
+            min = cars[i].getIn;
+    }
+    for(int j = 0; j < cars.length; j++){
+        if(cars[i].getIn.diff(min) == 0)
+            return cars[i].getId;
+    }
+}
+// #Parking.java
+public int total(){
+    return this.in.diff(this.out);
+}
+
+public static int sumMoney(Parking[] cars){
+    int sum = 0;
+    for(int i = 0; i < cars.length; i++){
+        if(cars[i].total() > 120)
+            sum = sum + (cars[i].total() - 120);
+    }
+    return sum;
+}
+
+public static String originalText(String str, int[] arr){
+    char[] result = new char[str.length()];
+    for (int i = 0; i < str.length(); i++){
+        result[arr[i]] = str.charAt(i);
+    }
+    return new String(result);
+}
+
+public Transport(String name, int num, int day){
+    this.name = name;
+    this.num = num;
+    this.day = day;
+    this.toSchool = true;
+}
+
+public Transport(int num){
+    this.name = "Aviv";
+    this.day = 4;
+    this.toSchool = false;
+    if (num < 1 || num > 50)
+        this.num = 1;
+    else
+        this.num = num;
+}
+
+// מקבל מערך קווים של כל השבוע, יום וכיוון ומחזיר סכום תלמידים ביום ובכיוון שביקשנו
+public static int dayReport(Transport[] arr, int day, boolean forward){
+    int sum = 0;
+    for(int i = 0; i < arr.length; i++){
+        if(arr[i].getToSchool == forward && arr[i].getDay == day){
+            sum+=arr[i].getNum;    
+        }
+    }
+    return sum;
+}
+
+public static void moreForward(Transport[] arr){
+    for(int i = 1; i <= 6; i++){
+        if(dayReport(arr, i, true) > dayReport(arr, i, false))
+            System.Out.println(i);
+    }    
+}
+
+public int mutual(User other){
+    int counter = 0;
+    for(int i = 0; i < this.friends.length; i++){
+        for(int j = 0; j < other.getFriends.length; j++){
+            if(this.friends[i] == other.getFriends[j])
+                counter++;
+        }
+    }
+    return counter;
+}
+
+
+public static boolean success(int num){
+    int[] resultArr = new int[num];
+    double sum = 0;
+    int counter = 0;
+    for(int i = 0; i < resultArr.length; i++){
+        resultArr[i] = reader.nextInt();
+        sum = sum + resultArr[i];
+        if(resultArr[i] >= 6)
+            counter++;
+        if(resultArr[i] == 10)
+            return true;
+    }
+    if((sum/num) > 5.0)
+        return true;
+    else if(counter > (num/2))
+        return true;
+    else
+        return false;
+} 
+
+public int deltas(boolean isLonger){
+    int sum = 0;
+    if(isLonger){
+        for(int i = 1; i < this.arr.length; i++){
+            if(this.arr[i] > this.arr[i-1])
+                sum = sum + Math.abs(this.arr[i], this.arr[i-1]);
+        }
+    }
+    else{
+        for(int i = 1; i < this.arr.length; i++){
+            if(this.arr[i-1] > this.arr[i])
+                sum = sum + Math.abs(this.arr[i], this.arr[i-1]);
+        }
+    }
+    return sum;
 }
