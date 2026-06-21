@@ -1314,3 +1314,69 @@ public int deltas(boolean isLonger){
     }
     return sum;
 }
+
+public static boolean check(int numOrdered){
+    int sum = 0;
+    for(int i = 0; i < numOrdered; i++){
+        sum = sum + input.nextInt();
+    }
+    if(sum > 150)
+        return true;
+    else
+        return false;
+}
+
+public static void checkAll(){
+    int counter = 0;
+    for(int i = 0; i < 850; i++){
+        int numOfItems = input.nextInt();
+        if(!check(numOfItems))
+            counter++;
+    }
+    syso(counter);
+}
+
+Subject[] subArray = new Subject[10];
+private Subject[] subArray;
+subArray = new Subject[num];
+
+int x = 5;
+int x;
+x = 5;
+
+public ReportCard(String name, int num){
+    this.stuName = name;
+    this.subArray = new Subject[num];
+}
+
+public Boolean isExcellent(){
+    if(average() >= 85)
+        return true;
+    else
+        return false;
+}
+
+public static void printExcellent(ReportCard[] array){
+    for(int i = 0; i < array.length; i++){
+        if(array[i].isExcellent())
+            syso(array[i].getName());    
+    }
+}
+
+int randomNumber = (int)(Math.random() * 1000) + 1;
+
+public static PairOfNums[] generate (int n){
+    PairOfNums[] arr = new PairOfNums[n];
+    for(int i = 0; i < arr.length; i++){
+        int randomNumber1 = (int)(Math.random() * 1000) + 1;
+        int randomNumber2 = (int)(Math.random() * 1000) + 1;
+        PairOfNums tempPair = new PairOfNums(randomNumber1, randomNumber2);
+        if(tempPair.endStart())
+            arr[i] = new PairOfNums(randomNumer1, randomNumber2);
+        else
+            i--;
+    }
+    return arr;
+}
+
+}
