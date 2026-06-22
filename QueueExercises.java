@@ -1379,4 +1379,37 @@ public static PairOfNums[] generate (int n){
     return arr;
 }
 
+
+public static boolean getPass(int[] arr, int password){
+    for(int i = 0; i < arr.length; i++){
+        if(arr[i] == password)
+            return false;
+    }
+    for(i = 1; i < arr.length; i++){
+        arr[i] = arr[i-1];
+    }
+    arr[0] = password;
+    return true;
 }
+
+}
+// 0 <= x < 1
+// * in () multiplies both sides
+// + outside of () addition to both sides
+// * 10 =>.  0 <= x < 10 (numbers from 0 - 9)
+// * 40 =>.  40 <= x < 50 (numbers from 40 - 49)
+int i1 = (int)(Math.random() * max + 1) + min;
+// 0 - (length - 1) , min = 0, max = length - 1
+int i1 = (int)(Math.random() * length - 1 + 1) + 0;
+int i1 = (int)(Math.random() * arr.length);
+int i2 = (int)(Math.random() * arr.length);
+
+import java.util.Random;
+Random random = new Random();
+int rangeNumber = random.nextInt(max - min + 1) + min;
+// if we want range 10 - 50 (min = 10, max = 50) we do
+int rangeNumber = random.nextInt(50 - 10 + 1) + 10;
+int rangeNumber = random.nextInt(41) + 10;
+// if we want index (0 - length - 1)
+int rangeNumber = random.nextInt((arr.length - 1) - 0 + 1) + 0;
+int rangeNumber = random.nextInt(arr.length);
