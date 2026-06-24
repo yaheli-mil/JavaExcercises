@@ -1413,3 +1413,38 @@ int rangeNumber = random.nextInt(41) + 10;
 // if we want index (0 - length - 1)
 int rangeNumber = random.nextInt((arr.length - 1) - 0 + 1) + 0;
 int rangeNumber = random.nextInt(arr.length);
+
+int count = 0;
+for(int i = 0; i< arr.length; i++){
+    int num=arr[i]/10;
+    int digit = num%10;
+    if (digit == i)
+        count++;
+}
+
+public TourPackage(int id, int price, int maxTime, int maxData){
+    this.id = id;
+    this.price = price;
+    this.maxTime = maxTime;
+    this.maxData = maxData;
+    this.extra = 0;
+}
+
+public void setExtra(int minutes, int usage){
+    int extraMinutes = 0;
+    int extraData = 0;
+    if(minutes>this.maxTime)
+        extraMinutes = minutes - this.maxTime;
+    if(usage>this.maxData)
+        extraData = usage - this.maxData;
+    this.extra = extraMinutes + (extraData*2);
+}
+
+public static int calculate(TourPackage[] packages){
+    int counter = 0;
+    for(int i = 0; i < packages.length; i++){
+        if(packages[i].getExtra() > 0)
+            counter++;
+    }
+    return counter;
+}
